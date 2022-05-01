@@ -1,0 +1,62 @@
+.container {
+  background-color: rgb(238, 244, 243);
+  height: 4.5rem;
+  width: 100%;
+  position: fixed;
+  z-index: 3;
+  bottom: 0;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.homesvg {
+  background: url('../resources/home.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  height: 3rem;
+  width: 3rem;
+  margin: auto;
+}
+
+.cart {
+  background: url('../resources/cart.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  height: 3rem;
+  width: 3rem;
+  margin: auto;
+}
+
+.bag {
+  background: url('../resources/bag.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  height: 3rem;
+  width: 3rem;
+  margin: auto;
+}
+
+.love {
+  background: url('../resources/love.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  height: 3rem;
+  width: 3rem;
+  margin: auto;
+}
+
+.profile {
+  background: url('../resources/profile.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  height: 3rem;
+  width: 3rem;
+  margin: auto;
+}
