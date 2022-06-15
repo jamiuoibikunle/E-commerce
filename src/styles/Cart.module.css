@@ -1,0 +1,101 @@
+.wrapper {
+  width: 90%;
+  height: 6rem;
+  background-color: white;
+  padding: 1rem;
+  margin: 1rem auto;
+  overflow: hidden;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.cartImage {
+  width: 25%;
+  height: 6rem;
+}
+
+.cartName {
+  width: 45%;
+  color: grey;
+}
+
+.total {
+  padding: 1rem 0;
+  font-weight: 700;
+}
+
+.right {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.updateQuantity {
+  width: 70%;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.11), 
+  0 2px 2px rgba(0,0,0,0.11), 
+  0 4px 4px rgba(0,0,0,0.11), 
+  0 6px 8px rgba(0,0,0,0.11),
+  0 8px 16px rgba(0,0,0,0.11);
+  background-color: rgb(71, 174, 71);
+  color: white;
+  border-radius: 0.2rem;
+}
+
+.updateQuantityNum {
+  font-weight: 700;
+}
+
+.updateQuantityMinus, .updateQuantityAdd {
+  transform: scale(1.5);
+}
+
+.remove {
+  padding: 0.5rem;
+  width: 70%;
+  text-align: center;
+  color: rgb(224, 20, 20);
+  border-radius: 0.2rem;
+  font-weight: 600;
+}
+
+.proceed {
+  background-color: rgb(12, 87, 12);
+  color: white;
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  margin: auto;
+  padding: 1rem;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  text-decoration: none;
+}
+
+.empty {
+  background-color: rgb(224, 20, 20);
+  color: white;
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  margin: auto;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.emptycartmain {
+  color: rgb(212, 193, 158);
+  line-height: 2rem;
+  background-color: black;
+  padding: 2rem;
+  text-align: center;
+  font-size: 1.2rem;
+}

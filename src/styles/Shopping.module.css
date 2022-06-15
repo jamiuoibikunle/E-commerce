@@ -1,0 +1,47 @@
+.image {
+  object-fit: cover;
+  width: 8rem;
+  height: 6rem;
+  display: block;
+}
+
+.fig:first-child {
+  margin-top: 1rem;
+}
+
+.fig {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+  height: fit-content;
+  width: 90%;
+  margin: 2rem auto;
+  background-color: white;
+  border-radius: 1.2rem 0;
+}
+
+.figcap {
+  width: fit-content;
+}
+
+.productname {
+  font-size: 1.5rem;
+}
+
+.productdesc {
+  color: grey;
+}
+
+.productamount {
+  font-size: 1.5rem;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.shoppingwrapper {
+  margin-bottom: 5rem;
+}

@@ -5,11 +5,8 @@ function Header() {
   return (
     <div>
       <header className={styles.topImage}>
-        <span className={styles.bestdeals}>
-          Best deals
-        </span>
         <span className={styles.check}>
-          Check
+          Our pick for the month
         </span>
       </header>
     </div>

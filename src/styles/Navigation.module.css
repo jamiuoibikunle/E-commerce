@@ -1,62 +1,57 @@
-.container {
-  background-color: rgb(238, 244, 243);
-  height: 4.5rem;
+.navcontainer {
+  background-color: whitesmoke;
+  height: 3rem;
   width: 100%;
   position: fixed;
   z-index: 3;
   bottom: 0;
-  border-radius: 1rem;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-}
+  align-items: center;
+  border-top: 0.1rem solid grey;
+  }
 
-.homesvg {
-  background: url('../resources/home.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  height: 3rem;
-  width: 3rem;
-  margin: auto;
-}
+  .home {
+    mask-image: url(../resources/house.svg);
+    height: 1.5rem;
+    width: 1.5rem;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    background-color: grey;
+  }
 
-.cart {
-  background: url('../resources/cart.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  height: 3rem;
-  width: 3rem;
-  margin: auto;
-}
+  .cart {
+    mask-image: url(../resources/cart.svg);
+    height: 1.5rem;
+    width: 1.5rem;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    background-color: grey;
+    color: red;
+  }
 
-.bag {
-  background: url('../resources/bag.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  height: 3rem;
-  width: 3rem;
-  margin: auto;
-}
+  .profile {
+    mask-image: url(../resources/user.svg);
+    height: 1.5rem;
+    width: 1.5rem;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    background-color: grey;
+  }
 
-.love {
-  background: url('../resources/love.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  height: 3rem;
-  width: 3rem;
-  margin: auto;
-}
+  .shopping {
+    mask-image: url(../resources/shop.svg);
+    height: 1.5rem;
+    width: 1.5rem;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    background-color: grey;
+  }
 
-.profile {
-  background: url('../resources/profile.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  height: 3rem;
-  width: 3rem;
-  margin: auto;
-}
+  @media screen and (min-width: 820px) {
+    .navcontainer {
+      width: 820px;
+      margin: auto;
+    }
+  }

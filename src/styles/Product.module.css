@@ -1,0 +1,54 @@
+.wrapper {
+  width: 100%;
+  height: fit-content;
+  margin: 1rem auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: row;
+}
+
+.productImage {
+  width: 100%;
+  height: fit-content;
+}
+
+.container {
+  margin-bottom: 5rem;
+}
+
+.productDesc {
+  display: flex;
+  background-color: aqua;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.desc {
+  padding: 1rem;
+}
+
+.desc .name {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.nameFlex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.addToCart {
+  height: 2rem;
+  width: 2rem;
+  mask-image: url(../resources/addToCart.svg);
+  background-color: black;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+.shortdesc {
+  padding: 1.5rem 0;
+  line-height: 1.5rem;
+  color: black;
+}
