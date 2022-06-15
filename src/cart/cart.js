@@ -3,22 +3,12 @@ import {commerce} from '../commerce/commerce'
 import styles from '../styles/Cart.module.css'
 import {Link} from 'react-router-dom'
 
-function Cart() {
-
-  const [cartItems, setItems] = useState([])
-
-  const fetchData = async () => {
-    await commerce.cart.contents().then((data) => setItems(data));
-  }
-
-  useEffect(() => {
-    fetchData()
-  }, [cartItems])
+function Cart({cartItems}) {
 
   if (cartItems.length !== 0) {
     
     return (
-    <div>
+    <div className={styles.container}>
       {cartItems.map((cartItem) => {
         return (
           <main key={cartItem.id}>

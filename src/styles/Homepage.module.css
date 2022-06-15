@@ -41,7 +41,7 @@
 
 .whyusitem {
   width: fit-content;
-  background-color: rgb(100, 194, 226);
+  background-color: rgb(58, 67, 71);
   color: white;
   padding: 0.8rem;
   border-radius: 1rem;
@@ -49,10 +49,9 @@
 }
 
 .text {
-  border: 1px solid rgb(100, 194, 226);
+  border: 1px solid rgb(58, 67, 71);
   padding: 1rem;
   border-radius: 1rem;
-  background-color: rgb(210, 229, 235);
-  color: grey;
+  color: rgb(58, 67, 71);
   line-height: 1.5rem;
 }

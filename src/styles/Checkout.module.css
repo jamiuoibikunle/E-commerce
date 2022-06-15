@@ -2,6 +2,10 @@
   margin-bottom: 5rem;
 }
 
+.paymentContainer {
+  margin-bottom: 5rem;
+}
+
 .header {
   margin: 3rem auto;
   width: fit-content;
@@ -118,4 +122,40 @@
   color: red;
   width: fit-content;
   margin: auto;
+}
+
+.summary {
+  width: 90%;
+  margin: 2rem auto;
+  line-height: 1.5rem;
+}
+
+.individual {
+  padding: 0.7rem;
+  border-radius: 0.5rem;
+  margin: 0.5rem auto;
+  color: black;
+}
+
+.name {
+  font-size: 1.3rem;
+}
+
+.quantity {
+  color: rgb(146, 140, 140);
+}
+
+.total {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.totalFigure {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.priceSummary {
+  line-height: 2rem;
+  margin: 1rem auto;
 }

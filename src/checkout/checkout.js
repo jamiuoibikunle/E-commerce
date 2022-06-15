@@ -1,11 +1,34 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import styles from '../styles/Checkout.module.css'
 import Confirmation from './Confirmation'
 import Payment from './Payment'
 import check from '../resources/check.svg'
 
-const Checkout = () => {
+import { commerce } from '../commerce/commerce'
+
+
+const Checkout = ({cart}) => {
+
+  const [checkoutToken, setCheckoutToken] = useState(null)
+
+  useEffect(() => {
+    const generateToken = async () => {
+      try {
+
+        const token = await commerce.checkout.generateToken(cart.id, { type: 'cart' })
+
+        console.log(token)
+
+        setCheckoutToken(token)
+
+      } catch (error) {
+
+      }
+    }
+
+    generateToken()
+  }, [cart])
 
   // State to keep track of step
   const [activeItem, setActiveItem] = useState(0)
@@ -58,9 +81,7 @@ const Checkout = () => {
 
     // Condition for when any of the field is empty
     if (!firstName) setEmptyField('Please ensure that none of the fields below is empty.')
-
   }
-
 
   return (
     <div>
@@ -99,7 +120,7 @@ const Checkout = () => {
       </nav>
       <main>
         {activeItem === 2 ? <Confirmation prevItem={prevItem} firstName={firstName} lastName={lastName} address={address} email={email} phone={phone} /> :
-      <div>
+        checkoutToken && <div>
         {activeItem === 0
         ?
       <div className={styles.personal}>
@@ -180,7 +201,7 @@ const Checkout = () => {
         </button>
       </section>
       </form>
-      </div> : <Payment prevItem={prevItem} set2={set2} num2={num2} activeItem={activeItem} makePayment={nextItem} />}
+      </div> : <Payment checkoutToken={checkoutToken} prevItem={prevItem} set2={set2} num2={num2} activeItem={activeItem} makePayment={nextItem} />}
 
           </div>}
       </main>

@@ -5,7 +5,7 @@ import { loadStripe } from '@stripe/stripe-js';
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY)
 
-const Payment = ({prevItem, makePayment, set2}) => {
+const Payment = ({prevItem, makePayment, set2, checkoutToken}) => {
 
   const handlePay = () => {
     makePayment();
@@ -13,10 +13,38 @@ const Payment = ({prevItem, makePayment, set2}) => {
   }
 
   return (
-    <div>
+    <div className={styles.paymentContainer}>
       <header className={styles.paymentHeader}>
         Payment Details
       </header>
+
+    <section className={styles.summary}>
+
+      {checkoutToken.live.line_items.map((product) => (
+        <main key={product.name} className={styles.individual}>
+          <div className={styles.name}>
+            {product.name}
+          </div>
+          <div className={styles.quantity}>
+            Quantity:
+              <span className={styles.quantityNum}>
+                {' ' + product.quantity}
+              </span>
+          </div>
+        </main>
+      ))}
+
+      <aside className={styles.priceSummary}>
+        <div className={styles.total}>
+          Total:
+        </div>
+        <div className={styles.totalFigure}>
+          {checkoutToken.live.subtotal.formatted_with_symbol}
+        </div>
+      </aside>
+
+    </section>
+
       {/* <main className={styles.form}>
         <label for='cardnumber'>
         <p className={styles.label}>
@@ -56,7 +84,7 @@ const Payment = ({prevItem, makePayment, set2}) => {
           BACK
         </button>
         <button className={styles.nextbtn} onClick={handlePay}>
-          PAY
+          PAY {checkoutToken.live.subtotal.formatted_with_symbol}
         </button>
       </section>
 

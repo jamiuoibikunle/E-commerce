@@ -12,7 +12,28 @@ import Profile from './profile/Profile'
 
 function App() {
 
-  let { productID } = useParams()
+  const [cartItems, setItems] = useState([])
+  const [cart, setCart] = useState()
+
+  
+  useEffect(() => {
+    
+    const fetchData = async () => {
+      await commerce.cart.contents().then((data) => setItems(data))
+    }
+    
+    const fetchCart = async () => {
+      setCart(await commerce.cart.retrieve())
+    }
+
+    fetchData()
+    fetchCart()
+
+  }, [cart])
+
+  console.log(cart);
+
+  const { productID } = useParams()
   
   const [products, setProducts] = useState([])
 
@@ -36,8 +57,8 @@ function App() {
           <Route path='/shopping' element={<Shopping products={products} />} />
           <Route path='/shopping/:productID' element={<Product />} />
           <Route path='/profile' element={<Profile />} />
-          <Route path='/cart' element={<Cart />} />
-          <Route path='/checkout' element={<Checkout />} />
+          <Route path='/cart' element={<Cart cartItems={cartItems} />} />
+          <Route path='/checkout' element={<Checkout cart={cart} />} />
           <Route path='*' element={<>Error page</>} />
         </Routes>
       </Router>
