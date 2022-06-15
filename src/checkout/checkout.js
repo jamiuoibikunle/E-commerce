@@ -1,25 +1,66 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styles from '../styles/Checkout.module.css'
 import Confirmation from './Confirmation'
 import Payment from './Payment'
+import check from '../resources/check.svg'
 
 const Checkout = () => {
 
+  // State to keep track of step
   const [activeItem, setActiveItem] = useState(0)
+
+  // State to collect data
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [address, setAddress] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
+  
+  // Empty state for error message
+  const [emptyField, setEmptyField] = useState('')
+  
+  // State to change stepper
+  const [num1, setNum1] = useState('')
+  const [num2, setNum2] = useState('')
 
+  // Handle stepper
   const nextItem = () => {
     setActiveItem(activeItem + 1)
   }
+  
+    const set2 = () => {
+      setNum2(<img src={check} alt='Check' />)
+    }
 
   const prevItem = () => {
     setActiveItem(activeItem - 1)
+
+    if (activeItem === 0) {
+      setNum1('')
+    } else {
+      setNum2('')
+    }
   }
+
+  // Handle Form Submit and data
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    
+    // Condition to only work when all field is entered 
+    if (firstName && lastName && email && phone && address) {
+      
+      nextItem()
+      setEmptyField('')
+      setNum1(<img src={check} alt='Check' />)
+
+    }
+
+    // Condition for when any of the field is empty
+    if (!firstName) setEmptyField('Please ensure that none of the fields below is empty.')
+
+  }
+
 
   return (
     <div>
@@ -29,19 +70,30 @@ const Checkout = () => {
       <nav className={styles.nav}>
         <p className={styles.navitem}>
           <span className={styles.first}>
-            1
+            <span className={styles.check}>
+              
+              {num1}
+            
+            </span>
           </span>
           <span>
             Personal Info
           </span>
         </p>
+
+        {/* Tag for line between 1 and 2 */}
         <p className={styles.line} />
+
         <p className={styles.navitem}>
         <span>
           Payment Details
         </span>
         <span className={styles.second}>
-            2
+            <span className={styles.check}>
+              
+              {num2}
+
+            </span>
         </span>
         </p>
       </nav>
@@ -55,8 +107,14 @@ const Checkout = () => {
         Personal Information
       </header>
 
+      <form onSubmit={handleSubmit}>
+        
       <main className={styles.form}>
-        <form>
+        <div className={styles.emptyField}>
+
+          {emptyField}
+        
+        </div>
         <label>
         <p className={styles.label}>
           First Name:
@@ -65,6 +123,7 @@ const Checkout = () => {
         placeholder='First name'
         className={styles.input}
         onChange={(e) => setFirstName(e.target.value)}
+        value={firstName}
         />
         </label>
         <label>
@@ -75,6 +134,7 @@ const Checkout = () => {
         placeholder='Last name'
         className={styles.input}
         onChange={(e) => setLastName(e.target.value)}
+        value={lastName}
         />
         </label>
         <label>
@@ -85,6 +145,7 @@ const Checkout = () => {
         placeholder='Residential Address'
         className={styles.input}
         onChange={(e) => setAddress(e.target.value)}
+        value={address}
         />
         </label>
         <label>
@@ -95,6 +156,7 @@ const Checkout = () => {
         placeholder='Email Address'
         className={styles.input}
         onChange={(e) => setEmail(e.target.value)}
+        value={email}
         />
         </label>
         <label>
@@ -105,19 +167,20 @@ const Checkout = () => {
         placeholder='Phone number'
         className={styles.input}
         onChange={(e) => setPhone(e.target.value)}
+        value={phone}
         />
         </label>
-      </form>
       </main>
       <section className={styles.checkoutnav}>
         <Link to='/cart' className={styles.linktocart}>
           BACK TO CART
         </Link>
-        <button className={styles.nextbtn} onClick={() => setActiveItem(1)} >
+        <button className={styles.nextbtn} type='submit'>
           NEXT
         </button>
       </section>
-      </div> : <Payment onClick={prevItem} activeItem={activeItem} makePayment={nextItem} />}
+      </form>
+      </div> : <Payment prevItem={prevItem} set2={set2} num2={num2} activeItem={activeItem} makePayment={nextItem} />}
 
           </div>}
       </main>

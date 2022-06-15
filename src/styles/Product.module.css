@@ -39,12 +39,13 @@
 }
 
 .addToCart {
-  height: 2rem;
-  width: 2rem;
+  height: 1.5rem;
+  width: 1.5rem;
   mask-image: url(../resources/addToCart.svg);
   background-color: black;
   mask-repeat: no-repeat;
   mask-position: center;
+  margin: 0.25rem;
 }
 
 .shortdesc {

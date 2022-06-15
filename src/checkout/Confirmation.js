@@ -1,29 +1,28 @@
 import React from 'react'
+import styles from '../styles/Confirmation.module.css'
 
 const Confirmation = ({firstName, lastName, email, address, phone, prevItem}) => {
   return (
-    <div>
+    <main className={styles.wrapper}>
+      <section className={styles.billingDetails}>
+
       <p>
-        First name: {firstName}
+        Name: {firstName} {lastName}
       </p>
       <p>
-        Last name: {lastName}
+        Shipping Address: {address}
       </p>
       <p>
-        Residential Address: {address}
+        Contact: {email}, {phone}
       </p>
-      <p>
-        Email Address: {email}
-      </p>
-      <p>
-        Phone Number: {phone}
-      </p>
-      <section>
-        <button onClick={prevItem}>
+      </section>
+
+      <section className={styles.footer}>
+        <button onClick={prevItem} className={styles.back}>
           BACK
         </button>
       </section>
-    </div>
+    </main>
   )
 }
 

@@ -1,0 +1,23 @@
+.wrapper {
+  width: 90%;
+  margin: 2rem auto;
+}
+
+.billingDetails {
+  width: 90%;
+  padding: 1.5rem;
+  margin: 1.5rem auto;
+  border-radius: 1rem;
+}
+
+.footer {
+  width: 90%;
+  margin: auto;
+}
+
+.back {
+  padding: 0.7rem;
+  border-radius: 0.2rem;
+  border: 1px solid grey;
+  background-color: transparent;
+}

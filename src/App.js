@@ -4,9 +4,9 @@ import { HashRouter as Router, Routes, Route, useParams } from 'react-router-dom
 import Navigation from './shopping/Navigation'
 import Product from './product/Product'
 import Cart from './cart/cart'
-import { commerce } from './commerce/commerce.js'
+import { commerce } from './commerce/commerce'
 import Homepage from './homepage/homepage'
-import Checkout from './checkout/checkout'
+import Checkout from './checkout/Checkout'
 import Profile from './profile/Profile'
 
 

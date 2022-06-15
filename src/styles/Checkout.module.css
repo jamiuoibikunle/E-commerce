@@ -18,31 +18,30 @@
 .line {
   width: 20%;
   height: 0.15rem;
-  background-color: grey;
+  background-color: rgb(100, 194, 226);
 }
 
 .first {
   background-color: rgb(100, 194, 226);
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.8rem;
+  height: 1.8rem;
   border-radius: 1rem;
-  text-align: center;
+  display: flex;
 }
 
 .second {
   background-color: rgb(100, 194, 226);
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.8rem;
+  height: 1.8rem;
   border-radius: 1rem;
-  text-align: center;
+  display: flex;
+}
+
+.check {
+  width: 60%;
+  height: 60%;
+  margin: auto;
+  color: white;
 }
 
 .navitem {
@@ -112,5 +111,11 @@
 
 .stripeWrapper {
   width: 90%;
+  margin: auto;
+}
+
+.emptyField {
+  color: red;
+  width: fit-content;
   margin: auto;
 }

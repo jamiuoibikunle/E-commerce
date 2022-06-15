@@ -5,7 +5,13 @@ import { loadStripe } from '@stripe/stripe-js';
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY)
 
-const Payment = ({onClick, makePayment}) => {
+const Payment = ({prevItem, makePayment, set2}) => {
+
+  const handlePay = () => {
+    makePayment();
+    set2()
+  }
+
   return (
     <div>
       <header className={styles.paymentHeader}>
@@ -46,10 +52,10 @@ const Payment = ({onClick, makePayment}) => {
       
       </div>
       <section className={styles.checkoutnav}>
-        <button className={styles.linktocart} onClick={onClick} >
+        <button className={styles.linktocart} onClick={prevItem} >
           BACK
         </button>
-        <button className={styles.nextbtn} onClick={makePayment}>
+        <button className={styles.nextbtn} onClick={handlePay}>
           PAY
         </button>
       </section>
