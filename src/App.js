@@ -75,7 +75,7 @@ function App() {
     <div>
       
       <Router>
-          <Navigation />
+          <Navigation cart={cart} />
         <Routes>
           <Route path='/' element={<Homepage />} />
           <Route path='/shopping' element={<Shopping products={products} />} />

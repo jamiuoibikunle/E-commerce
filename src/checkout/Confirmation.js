@@ -47,8 +47,8 @@ const Confirmation = ({order, amountPaid, lastName, firstName}) => {
       </section>
 
       <section className={styles.footer}>
-        <Link to='/shopping' className={styles.back}>
-          BACK TO SHOPPING
+        <Link to='/' className={styles.back}>
+          BACK TO HOME
         </Link>
       </section>
     </main>

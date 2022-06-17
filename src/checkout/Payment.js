@@ -2,9 +2,10 @@ import React from 'react'
 import styles from '../styles/Checkout.module.css'
 import PaystackPop from '@paystack/inline-js'
 
-const Payment = ({prevItem, nextItem, set2, address, checkoutToken, firstName, lastName, email, handleCaptureCheckout, shippingCountry, shippingOption, shippingSubdivision }) => {
+const Payment = ({prevItem, refreshCart, nextItem, set2, address, checkoutToken, firstName, lastName, email, handleCaptureCheckout, shippingCountry, shippingOption, shippingSubdivision }) => {
 
   const handlePay = (e) => {
+
     e.preventDefault();
 
     let totalAmount = checkoutToken.live.total.formatted;

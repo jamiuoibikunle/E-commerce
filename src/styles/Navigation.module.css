@@ -28,7 +28,6 @@
     mask-position: center;
     mask-repeat: no-repeat;
     background-color: grey;
-    color: red;
   }
 
   .profile {
@@ -49,9 +48,36 @@
     background-color: grey;
   }
 
+  .cartNo {
+	position: absolute;
+	right: 32%;
+	top: 5%;
+	font-weight: 900;
+	width: 1.5rem;
+	height: 1.5rem;
+	color: white;
+	background-color: #E01414;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 100%;
+}
+
   @media screen and (min-width: 820px) {
     .navcontainer {
       width: 820px;
       margin: auto;
     }
+
+	.cartNo {
+		position: absolute;
+		right: 34.5%;
+	}
+  }
+
+  @media screen and (max-width: 360px) {
+	.cartNo {
+		position: absolute;
+		right: 31%;
+	}
   }

@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import styles from '../styles/Navigation.module.css'
 import '../styles/nav.css'
 
-const Navigation = () => {
+const Navigation = ({cart}) => {
 
   return (
     <main className={styles.navcontainer}>
@@ -15,6 +15,9 @@ const Navigation = () => {
       </NavLink>
       <NavLink to='/profile' className={styles.profile}>
       </NavLink>
+      <span className={styles.cartNo}>
+        {cart && cart.total_items}
+      </span>
     </main>
   )
 }

@@ -311,7 +311,7 @@ const Checkout = ({cart, handleCaptureCheckout, order}) => {
       </form>
       </div> : <Payment
       
-      checkoutToken={checkoutToken} 
+      checkoutToken={checkoutToken}
       address={address} 
       shippingCountry={shippingCountry} 
       shippingOption={shippingOption} 
