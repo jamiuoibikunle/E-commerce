@@ -4,6 +4,7 @@ import styles from '../styles/Checkout.module.css'
 import Confirmation from './Confirmation'
 import Payment from './Payment'
 import check from '../resources/check.svg'
+import { Stepper, Step, StepLabel } from "@material-ui/core"
 
 import { commerce } from '../commerce/commerce'
 
@@ -156,36 +157,16 @@ const Checkout = ({cart, handleCaptureCheckout, order}) => {
       <header className={styles.header}>
         Checkout
       </header>
-      <nav className={styles.nav}>
-        <p className={styles.navitem}>
-          <span className={styles.first}>
-            <span className={styles.check}>
-              
-              {num1}
-            
-            </span>
-          </span>
-          <span>
-            Personal Info
-          </span>
-        </p>
 
-        {/* Tag for line between 1 and 2 */}
-        <p className={styles.line} />
+      <Stepper activeStep={activeItem}>
+        <Step>
+          <StepLabel>Shipping Info</StepLabel>
+        </Step>
+        <Step>
+          <StepLabel>Payment Gateway</StepLabel>
+        </Step>
+      </Stepper>
 
-        <p className={styles.navitem}>
-        <span>
-          Payment Details
-        </span>
-        <span className={styles.second}>
-            <span className={styles.check}>
-              
-              {num2}
-
-            </span>
-        </span>
-        </p>
-      </nav>
       <main>
         {activeItem === 2 ? <Confirmation 
         prevItem={prevItem} 

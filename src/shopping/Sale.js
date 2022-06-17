@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from '../styles/Sale.module.css'
 import {Link} from 'react-router-dom' 
-import {CircularProgress} from '@material-ui/core'
+import { CircularProgress } from '@material-ui/core'
 
 function Sale({ products }) {
   return (

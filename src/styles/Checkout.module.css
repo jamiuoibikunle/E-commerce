@@ -12,42 +12,6 @@
   font-size: 1.5rem;
 }
 
-.nav {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.line {
-  width: 20%;
-  height: 0.15rem;
-  background-color: rgb(100, 194, 226);
-}
-
-.first {
-  background-color: rgb(100, 194, 226);
-  width: 1.8rem;
-  height: 1.8rem;
-  border-radius: 1rem;
-  display: flex;
-}
-
-.second {
-  background-color: rgb(100, 194, 226);
-  width: 1.8rem;
-  height: 1.8rem;
-  border-radius: 1rem;
-  display: flex;
-}
-
-.check {
-  width: 60%;
-  height: 60%;
-  margin: auto;
-  color: white;
-}
-
 .navitem {
   display: flex;
   justify-content: center;
@@ -67,7 +31,7 @@
 
 .nextbtn {
   color: white;
-  background-color: rgb(100, 194, 226);
+  background-color: #3F51B5;
   padding: 0.5rem 0.8rem;
   border: none;
   border-radius: 0.2rem;
@@ -110,12 +74,7 @@
 
 .input:focus {
   outline: none;
-  border: 1px solid rgb(100, 194, 226);
-}
-
-.stripeWrapper {
-  width: 90%;
-  margin: auto;
+  border: 1px solid #3F51B5;
 }
 
 .emptyField {

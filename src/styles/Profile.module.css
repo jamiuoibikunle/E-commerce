@@ -103,6 +103,16 @@
   padding: 0.5rem;
 }
 
+.spinner {
+  position: absolute;
+  margin: auto;
+  width: fit-content;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
 .checkyourmail {
   width: fit-content;
   margin: auto;
@@ -113,4 +123,10 @@
 
 .emailempty {
   color: rgb(224, 20, 20);
+}
+
+.trackOrders {
+  width: fit-content;
+  margin: auto;
+  color: grey;
 }

@@ -4,6 +4,7 @@ import './styles/responsive.css'
 import './index.css'
 import reportWebVitals from './reportWebVitals';
 import {CircularProgress} from '@material-ui/core'
+import styles from './styles/Spinner.module.css'
 
 const App = React.lazy(() => import('./App'));
 
@@ -12,7 +13,7 @@ ReactDOM.render(
     <React.Suspense fallback={
       <div className='SuspenseProgress'>
 
-        <CircularProgress />
+        <CircularProgress className={styles.spinner} />
       
       </div>
   }>

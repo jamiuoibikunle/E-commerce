@@ -8,7 +8,7 @@ const Profile = () => {
   const [ emailaddress, setEmailaddress ] = useState()
   const [ customerOrders, setCustomerOrders ] = useState([])
   const [ customerDetails, setCustomerDetails ] = useState({})
-  const [ message, setMessage ] = useState('')
+  const [ message, setMessage ] = useState('Kindly log in to track your orders')
   const [ emptyEmail, setEmptyEmail ] = useState('')
   
   const handleLogin = (e) => {
@@ -102,13 +102,14 @@ const Profile = () => {
             Log Out
       </button> :
 
-      <CircularProgress /> }
+      <CircularProgress className={styles.spinner} /> }
 
       </div>
     
     </section> :
 
       <form className={styles.loginform} onSubmit={handleLogin}>
+
         <div className={styles.checkyourmail}>
             {message}
         <div className={styles.emailempty}>
