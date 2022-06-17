@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import styles from '../styles/Checkout.module.css'
 import Confirmation from './Confirmation'
 import Payment from './Payment'
@@ -14,8 +14,6 @@ const Checkout = ({cart, handleCaptureCheckout, order}) => {
   const [amountPaid, setAmountPaid] = useState('')
   
   console.log(checkoutToken)
-
-  const navigate = useNavigate()
 
   useEffect(() => {
 
@@ -200,6 +198,7 @@ const Checkout = ({cart, handleCaptureCheckout, order}) => {
         amountPaid={amountPaid}
 
         /> :
+        
         checkoutToken && <div>
         {activeItem === 0
         ?

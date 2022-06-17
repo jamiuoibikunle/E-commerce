@@ -3,6 +3,16 @@
   margin-bottom: 5rem;
 }
 
+.allProducts {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: center;
+  margin: auto;
+}
+
 .header {
   margin: 1rem;
   display: flex;
@@ -27,8 +37,23 @@ dd {
   font-size: 1rem;
 }
 
+.individualFig {
+  width: 20rem;
+  height: 20rem;
+  margin: auto;
+}
+
+.progress {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
 .product {
-  height: fit-content;
+  height: 15rem;
   width: 100%;
   border-radius: 1rem;
 }
@@ -53,4 +78,5 @@ p {
 .link {
   text-decoration: none;
   color: inherit;
+  margin: auto;
 }

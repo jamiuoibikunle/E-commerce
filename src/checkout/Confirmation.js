@@ -1,10 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { CircularProgress } from '@material-ui/core'
 import styles from '../styles/Confirmation.module.css'
 
 import transactioncomplete from '../resources/transactioncomplete.svg'
 
-const Confirmation = ({order, amountPaid}) => {
+const Confirmation = ({order, amountPaid, lastName, firstName}) => {
 
   console.log(order);
 
@@ -32,7 +33,7 @@ const Confirmation = ({order, amountPaid}) => {
           Order ID
         </span>
         <span>
-          {order.customer_reference}
+          {order.customer_reference ? order.customer_reference : <CircularProgress /> }
         </span>
       </section>
       <section className={styles.individual}>
@@ -40,7 +41,7 @@ const Confirmation = ({order, amountPaid}) => {
           Customer name
         </span>
         <span>
-          {order.customer.firstname} {order.customer.lastname}
+          {firstName} {lastName}
         </span>
       </section>
       </section>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styles from '../styles/Product.module.css'
 import { commerce } from '../commerce/commerce'
 import { useParams } from 'react-router-dom'
+import { CircularProgress } from '@material-ui/core'
 
 const Product = () => {
 
@@ -24,7 +25,7 @@ const Product = () => {
     
     fetchData()
 
-  }, [])
+  }, [productID])
 
   const addCart = () => {
     commerce.cart.retrieve().then((cart) => console.log(cart));
@@ -33,16 +34,25 @@ const Product = () => {
 
   return (
     <div className={styles.container}>
+      
       <figure className={styles.wrapper}>
-        <img src={prodImg} className={styles.productImage} />
-        </figure>
+        {prodImg ?
 
+        <img src={prodImg} className={styles.productImage} alt='Product' />
+        
+        :
+
+        <CircularProgress className={styles.spinner} />
+      
+      }
+
+        </figure>
       <main className={styles.desc}>
         <dl className={styles.name}>
         <dt className={styles.nameFlex}>
           {prodName}
 
-        <aside className={styles.addToCart} onClick={addCart} />
+        {prodImg && <aside className={styles.addToCart} onClick={addCart} />}
 
         </dt>
         <dd>

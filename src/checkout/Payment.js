@@ -2,16 +2,20 @@ import React from 'react'
 import styles from '../styles/Checkout.module.css'
 import PaystackPop from '@paystack/inline-js'
 
-const Payment = ({prevItem, nextItem, address, checkoutToken, firstName, lastName, email, handleCaptureCheckout, shippingCountry, shippingOption, shippingSubdivision }) => {
+const Payment = ({prevItem, nextItem, set2, address, checkoutToken, firstName, lastName, email, handleCaptureCheckout, shippingCountry, shippingOption, shippingSubdivision }) => {
 
   const handlePay = (e) => {
     e.preventDefault();
+
+    let totalAmount = checkoutToken.live.total.formatted;
+
+    const formattedAmount = totalAmount.replaceAll(',', '')
 
     const newPaystack = new PaystackPop()
 
     newPaystack.newTransaction({
       key: process.env.REACT_APP_PAYSTACK_PUBLIC_KEY,
-      amount: 500,
+      amount: formattedAmount * 100,
       email: email,
       onSuccess(transaction) {
 
@@ -26,7 +30,7 @@ const Payment = ({prevItem, nextItem, address, checkoutToken, firstName, lastNam
             street: address,
             town_city: 'Unspecified',
             county_state: shippingSubdivision,
-            postal_zip_code: '201102',
+            postal_zip_code: 'Unspecified',
             country: shippingCountry
           },
           fulfillment: {
@@ -46,6 +50,8 @@ const Payment = ({prevItem, nextItem, address, checkoutToken, firstName, lastNam
         handleCaptureCheckout(checkoutToken.id, orderData);
 
         nextItem();
+        set2();
+        
       }
     })
     
@@ -84,29 +90,6 @@ const Payment = ({prevItem, nextItem, address, checkoutToken, firstName, lastNam
 
     </section>
 
-      {/* <main className={styles.form}>
-        <label for='cardnumber'>
-        <p className={styles.label}>
-          Card Number:
-        </p>
-        <input placeholder='Card Number' className={styles.input} />
-        </label>
-        <label for='CVV'>
-        <p className={styles.label}>
-          CVV:
-        </p>
-        <input placeholder='CVV' className={styles.input} />
-        </label>
-        <label for='Expiry Date'>
-        <p className={styles.label}>
-          Expiry Date:
-        </p>
-        <input placeholder='Expiry Date' className={styles.input} />
-        </label>
-      </main> */}
-      <div className={styles.stripeWrapper}>
-      
-      </div>
       <section className={styles.checkoutnav}>
         <button className={styles.linktocart} onClick={prevItem} >
           BACK

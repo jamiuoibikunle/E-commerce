@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from '../styles/Sale.module.css'
 import {Link} from 'react-router-dom' 
+import {CircularProgress} from '@material-ui/core'
 
 function Sale({ products }) {
   return (
@@ -13,15 +14,19 @@ function Sale({ products }) {
           <dd>
             Super sales
           </dd>
+          
         </dl>
       </header>
+      
+      {products ?
+      
       <section className={styles.allProducts}>
         {products.map((product) => (
           
         <Link to={product.id} className={styles.link} key={product.id}>
 
         <figure className={styles.individualFig}>
-          <img src={product.image.url} className={styles.product} />
+          <img src={product.image.url} className={styles.product} alt='Product' />
           <figcaption>
             <p className={styles.model}>
               {product.categories[0].name || 'Unspecified'}
@@ -39,7 +44,7 @@ function Sale({ products }) {
 
 
         ))}
-      </section>
+      </section> : <div className={styles.progress}><CircularProgress /></div> }
     </div>
   )
 }

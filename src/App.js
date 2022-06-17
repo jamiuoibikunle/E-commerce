@@ -8,6 +8,7 @@ import { commerce } from './commerce/commerce'
 import Homepage from './homepage/homepage'
 import Checkout from './checkout/Checkout'
 import Profile from './profile/Profile'
+import Login from './login/Login'
 
 
 function App() {
@@ -80,6 +81,7 @@ function App() {
           <Route path='/shopping' element={<Shopping products={products} />} />
           <Route path='/shopping/:productID' element={<Product />} />
           <Route path='/profile' element={<Profile />} />
+          <Route path='/login/:loginID' element={<Login />} />
           <Route path='/cart' element={<Cart cartItems={cartItems} />} />
           <Route path='/checkout' element={<Checkout cart={cart} order={order} handleCaptureCheckout={handleCaptureCheckout} errorMessage={errorMessage} />} />
           <Route path='*' element={<>Error page</>} />

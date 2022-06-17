@@ -6,3 +6,111 @@
   font-size: 1.2rem;
   line-height: 2rem;
 }
+
+.individualOrder {
+  box-sizing: border-box;
+  width: 90%;
+  margin: auto;
+  padding: 1rem;
+  border-bottom: 3px solid white;
+  background-color: rgb(220, 241, 241);
+  border-radius: 0.5rem;
+  line-height: 2rem;
+}
+
+.eachOrder {
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.delivery {
+  width: fit-content;
+  margin: auto;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.loggedIn {
+  margin-top: 1rem;
+  margin-bottom: 5rem;
+}
+
+.id {
+  color: rgb(94, 36, 36);
+}
+
+.customer {
+  color: rgb(94, 36, 36);
+}
+
+.address {
+  color: rgb(94, 36, 36);
+}
+
+.logout {
+  width: 90%;
+  margin: auto;
+  margin-top: 1rem;
+  height: 3rem;
+}
+
+.logoutbtn {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.4rem;
+  outline: none;
+  border: 1px solid rgb(94, 36, 36);
+  background-color: rgb(224, 20, 20);
+  color: white;
+}
+
+.loginform {
+  width: 90%;
+  height: fit-content;
+  margin: 5rem auto;
+}
+
+.emailinput {
+  width: 100%;
+  box-sizing: border-box;
+  height: 3rem;
+  outline: none;
+  border: 1px solid grey;
+  border-radius: 0.3rem;
+  padding: 1rem;
+}
+
+.emailinput:focus {
+  border: 1px solid #166FE6;
+}
+
+.loginbtn {
+  margin-top: 1.5rem;
+  width: 100%;
+  height: 3rem;
+  border-radius: 0.5rem;
+  outline: none;
+  background-color: #166FE6;
+  font-size: 1.25rem;
+  color: white;
+  border: 1px solid #166FE6;
+}
+
+.noorder {
+  width: fit-content;
+  margin: auto;
+  padding: 0.5rem;
+}
+
+.checkyourmail {
+  width: fit-content;
+  margin: auto;
+  text-align: center;
+  padding: 1.5rem;
+  color: grey;
+}
+
+.emailempty {
+  color: rgb(224, 20, 20);
+}
