@@ -1,15 +1,54 @@
 import React from 'react'
 import styles from '../styles/Checkout.module.css'
-import { Elements, CardElement, ElementsConsumer } from '@stripe/react-stripe-js';
-import { loadStripe } from '@stripe/stripe-js';
+import PaystackPop from '@paystack/inline-js'
 
-const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY)
+const Payment = ({prevItem, nextItem, address, checkoutToken, firstName, lastName, email, handleCaptureCheckout, shippingCountry, shippingOption, shippingSubdivision }) => {
 
-const Payment = ({prevItem, makePayment, set2, checkoutToken}) => {
+  const handlePay = (e) => {
+    e.preventDefault();
 
-  const handlePay = () => {
-    makePayment();
-    set2()
+    const newPaystack = new PaystackPop()
+
+    newPaystack.newTransaction({
+      key: process.env.REACT_APP_PAYSTACK_PUBLIC_KEY,
+      amount: 500,
+      email: email,
+      onSuccess(transaction) {
+
+        const orderData = {
+
+          line_items: checkoutToken.live.line_items,
+          customer: {
+            firstname: firstName, lastname: lastName, email: email
+          },
+          shipping: {
+            name: 'Primary',
+            street: address,
+            town_city: 'Unspecified',
+            county_state: shippingSubdivision,
+            postal_zip_code: '201102',
+            country: shippingCountry
+          },
+          fulfillment: {
+            shipping_method: shippingOption
+          },
+          payment: {
+            gateway: 'test_gateway',
+            card: {
+              number: '4242424242424242',
+              expiry_month: '02',
+              expiry_year: '24',
+              cvc: '123',
+              postal_zip_code: '94107'}
+            }
+        }
+
+        handleCaptureCheckout(checkoutToken.id, orderData);
+
+        nextItem();
+      }
+    })
+    
   }
 
   return (
@@ -66,17 +105,6 @@ const Payment = ({prevItem, makePayment, set2, checkoutToken}) => {
         </label>
       </main> */}
       <div className={styles.stripeWrapper}>
-
-
-      <Elements stripe={stripePromise}>
-        <ElementsConsumer>
-          {({ elements, stripe }) => (
-            <form>
-                <CardElement />
-              </form>
-          )}
-        </ElementsConsumer>
-      </Elements>
       
       </div>
       <section className={styles.checkoutnav}>

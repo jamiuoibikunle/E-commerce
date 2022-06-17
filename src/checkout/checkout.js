@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import styles from '../styles/Checkout.module.css'
 import Confirmation from './Confirmation'
 import Payment from './Payment'
@@ -8,27 +8,33 @@ import check from '../resources/check.svg'
 import { commerce } from '../commerce/commerce'
 
 
-const Checkout = ({cart}) => {
+const Checkout = ({cart, handleCaptureCheckout, order}) => {
 
   const [checkoutToken, setCheckoutToken] = useState(null)
+  const [amountPaid, setAmountPaid] = useState('')
+  
+  console.log(checkoutToken)
+
+  const navigate = useNavigate()
 
   useEffect(() => {
+
     const generateToken = async () => {
+    
       try {
 
         const token = await commerce.checkout.generateToken(cart.id, { type: 'cart' })
-
-        console.log(token)
-
+      
         setCheckoutToken(token)
 
       } catch (error) {
-
+        console.log(error)
       }
     }
 
     generateToken()
   }, [cart])
+
 
   // State to keep track of step
   const [activeItem, setActiveItem] = useState(0)
@@ -39,6 +45,14 @@ const Checkout = ({cart}) => {
   const [address, setAddress] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
+
+  // State for the select fields
+  const [shippingCountries, setShippingCountries] = useState([])
+  const [shippingCountry, setShippingCountry] = useState('')
+  const [shippingSubdivisions, setShippingSubdivisions] = useState([])
+  const [shippingSubdivision, setShippingSubdivision] = useState('')
+  const [shippingOptions, setShippingOptions] = useState([])
+  const [shippingOption, setShippingOption] = useState('')
   
   // Empty state for error message
   const [emptyField, setEmptyField] = useState('')
@@ -46,6 +60,62 @@ const Checkout = ({cart}) => {
   // State to change stepper
   const [num1, setNum1] = useState('')
   const [num2, setNum2] = useState('')
+
+  // Fetch all available countries
+  const fetchCountries = async (checkoutTokenId) => {
+    const {countries} = await commerce.services.localeListShippingCountries(checkoutTokenId)
+    console.log(countries);
+
+    setShippingCountries(countries)
+    setShippingCountry(Object.keys(countries)[0])
+  }
+
+  // Fetch subdivisions
+  const fetchSubdivisions = async (countryCode) => {
+    const {subdivisions} = await commerce.services.localeListSubdivisions(countryCode)
+
+    setShippingSubdivisions(subdivisions)
+    setShippingSubdivision(Object.keys(subdivisions)[0])
+  }
+
+  // Fetch shipping options
+  const fetchShippingOptions = async (checkoutTokenId, country, region = null) => {
+
+    const options = await commerce.checkout.getShippingOptions(checkoutTokenId, { country, region })
+
+    setShippingOptions(options)
+    setShippingOption(options[0].id)
+
+  }
+
+  useEffect(() => {
+    if (checkoutToken) setAmountPaid(checkoutToken.live.total.formatted_with_symbol)
+  }, [checkoutToken])
+
+  useEffect(() => {
+
+    fetchCountries(checkoutToken)
+
+  }, [])
+
+  useEffect(() => {
+
+    if (shippingCountry) fetchSubdivisions(shippingCountry)
+
+  }, [shippingCountry])
+
+  useEffect(() => {
+
+    if (shippingSubdivision) fetchShippingOptions(checkoutToken, shippingCountry, shippingSubdivision)
+
+  }, [shippingSubdivision])
+
+  const countries = Object.entries(shippingCountries).map(([code, name]) => ({ id: code, label: name }))
+  const subdivisions = Object.entries(shippingSubdivisions).map(([code, name]) => ({ id: code, label: name }))
+  const options = shippingOptions.map((SO) => ({
+    id: SO.id,
+    label: `${SO.description} - (${SO.price.formatted_with_symbol})`
+  }))
 
   // Handle stepper
   const nextItem = () => {
@@ -119,7 +189,17 @@ const Checkout = ({cart}) => {
         </p>
       </nav>
       <main>
-        {activeItem === 2 ? <Confirmation prevItem={prevItem} firstName={firstName} lastName={lastName} address={address} email={email} phone={phone} /> :
+        {activeItem === 2 ? <Confirmation 
+        prevItem={prevItem} 
+        firstName={firstName} 
+        lastName={lastName} 
+        address={address} 
+        email={email} 
+        phone={phone} 
+        order={order}
+        amountPaid={amountPaid}
+
+        /> :
         checkoutToken && <div>
         {activeItem === 0
         ?
@@ -191,6 +271,54 @@ const Checkout = ({cart}) => {
         value={phone}
         />
         </label>
+        <label>
+        <p className={styles.label}>
+          Shipping Country:
+        </p>
+        <select
+        className={styles.input}
+        onChange={(e) => setShippingCountry(e.target.value)}
+        value={shippingCountry}
+        >
+          {countries.map((country) => (
+            <option key={country.id} value={country.id}>
+              {country.label}
+            </option>
+          ))}
+        </select>
+        </label>
+        <label>
+        <p className={styles.label}>
+          Shipping Subdivision:
+        </p>
+        <select
+        className={styles.input}
+        onChange={(e) => setShippingSubdivision(e.target.value)}
+        value={shippingSubdivision}
+        >
+          {subdivisions.map((subdivision) => (
+            <option key={subdivision.id} value={subdivision.id}>
+              {subdivision.label}
+            </option>
+          ))}
+        </select>
+        </label>
+        <label>
+        <p className={styles.label}>
+          Shipping Options:
+        </p>
+        <select
+        className={styles.input}
+        onChange={(e) => setShippingOption(e.target.value)}
+        value={shippingOption}
+        >
+          {options.map((option) => (
+            <option key={option.id} value={option.id}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+        </label>
       </main>
       <section className={styles.checkoutnav}>
         <Link to='/cart' className={styles.linktocart}>
@@ -201,7 +329,20 @@ const Checkout = ({cart}) => {
         </button>
       </section>
       </form>
-      </div> : <Payment checkoutToken={checkoutToken} prevItem={prevItem} set2={set2} num2={num2} activeItem={activeItem} makePayment={nextItem} />}
+      </div> : <Payment
+      
+      checkoutToken={checkoutToken} 
+      address={address} 
+      shippingCountry={shippingCountry} 
+      shippingOption={shippingOption} 
+      shippingSubdivision={shippingSubdivision} 
+      handleCaptureCheckout={handleCaptureCheckout} 
+      prevItem={prevItem} set2={set2} firstName={firstName} 
+      lastName={lastName} 
+      email={email} 
+      num2={num2} 
+      activeItem={activeItem} 
+      nextItem={nextItem} />}
 
           </div>}
       </main>
