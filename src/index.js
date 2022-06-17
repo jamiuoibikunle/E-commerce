@@ -10,7 +10,11 @@ const App = React.lazy(() => import('./App'));
 ReactDOM.render(
   <React.StrictMode>
     <React.Suspense fallback={
-      <CircularProgress />
+      <div className='SuspenseProgress'>
+
+        <CircularProgress />
+      
+      </div>
   }>
     <App />
     </React.Suspense>
