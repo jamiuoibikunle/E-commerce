@@ -12,9 +12,7 @@ ReactDOM.render(
   <React.StrictMode>
     <React.Suspense fallback={
       <div className='SuspenseProgress'>
-
         <CircularProgress className={styles.spinner} />
-      
       </div>
   }>
     <App />

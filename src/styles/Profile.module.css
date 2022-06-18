@@ -8,32 +8,20 @@
 }
 
 .individualOrder {
+  font-size: 0.9rem;
+  color: grey;
+  font-weight: 600;
   box-sizing: border-box;
-  width: 90%;
-  margin: auto;
-  padding: 1rem;
-  border-bottom: 3px solid white;
-  background-color: rgb(220, 241, 241);
-  border-radius: 0.5rem;
-  line-height: 2rem;
-}
-
-.eachOrder {
-  font-size: 1.2rem;
-  font-weight: 600;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.delivery {
-  width: fit-content;
-  margin: auto;
-  font-size: 1.3rem;
-  font-weight: 600;
+  width: 775px;
+  gap: 0.2rem;
+  margin: 1rem 1.4rem;
+  display: flex;
+  justify-content: flex-start;  
+  border-bottom: 0.5px solid rgb(220, 241, 241);
 }
 
 .loggedIn {
   margin-top: 1rem;
-  margin-bottom: 5rem;
 }
 
 .id {
@@ -52,6 +40,7 @@
   width: 90%;
   margin: auto;
   margin-top: 1rem;
+  margin-bottom: 5rem;
   height: 3rem;
 }
 
@@ -129,4 +118,33 @@
   width: fit-content;
   margin: auto;
   color: grey;
+}
+
+.heading {
+  font-size: 0.9rem;
+  color: grey;
+  font-weight: 600;
+  box-sizing: border-box;
+  width: 775px;
+  gap: 0.2rem;
+  margin: 1rem 1.4rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.item {
+  flex: 1;
+  background-color: rgb(220, 241, 241);
+  padding: 0.6rem 1.5rem;
+  border-radius: 0.2rem;
+}
+
+.orders {
+  overflow-x: scroll;
+}
+
+.orderdetail {
+  flex: 1;
+  border-radius: 0.2rem;
+  padding: 0.6rem 1.5rem;
 }

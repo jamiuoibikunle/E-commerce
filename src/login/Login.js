@@ -5,35 +5,20 @@ import { commerce } from '../commerce/commerce';
 
 const Login = () => {
 
-  const navigate = useNavigate()
-  const { loginID } = useParams()
+	const navigate = useNavigate()
+	const { loginID } = useParams()
 
-  const onLogin = () => {
-
-    try {
-
-      commerce.customer.getToken(loginID)
-
-      navigate('/orders')
-      
-    } catch (error) {
-
-      console.log(error);
-    
-    }
-
-  }
-
-  useEffect(() => {
-    onLogin()
-  }, {loginID})
-
-
-  return (
-    <div>
-
-    </div>
-  )
+	useEffect(() => {
+		const onLogin = () => {
+			try {
+				commerce.customer.getToken(loginID)
+				navigate('/orders')
+			} catch (error) {
+				console.log(error);
+			}
+		}
+		onLogin()
+	}, {loginID})
 }
 
 export default Login
