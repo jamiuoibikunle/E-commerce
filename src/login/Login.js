@@ -14,7 +14,7 @@ const Login = () => {
 
       commerce.customer.getToken(loginID)
 
-      navigate('/profile')
+      navigate('/orders')
       
     } catch (error) {
 

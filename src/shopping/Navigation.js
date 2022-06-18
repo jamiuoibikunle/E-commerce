@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import styles from '../styles/Navigation.module.css'
 import '../styles/nav.css'
 
 const Navigation = ({cart}) => {
+
+  const [totalItems, setTotalItems] = useState(null)
+
+  useEffect(() => {
+    cart && setTotalItems(cart.total_items)
+  }, [cart])
 
   return (
     <main className={styles.navcontainer}>
@@ -13,11 +19,14 @@ const Navigation = ({cart}) => {
       </NavLink>
       <NavLink to='/cart' className={styles.cart}>
       </NavLink>
-      <NavLink to='/profile' className={styles.profile}>
+      <NavLink to='/orders' className={styles.profile}>
       </NavLink>
-      <span className={styles.cartNo}>
-        {cart && cart.total_items}
+
+        { totalItems !== 0 &&
+        <span className={styles.cartNo}>
+        {cart && totalItems}
       </span>
+        }
     </main>
   )
 }

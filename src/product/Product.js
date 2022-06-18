@@ -55,7 +55,7 @@ const Product = () => {
         {prodImg && <aside className={styles.addToCart} onClick={addCart} />}
 
         </dt>
-        <dd>
+        <dd className={styles.dd}>
           {prodPrice}
         </dd>
         </dl>

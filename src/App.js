@@ -7,7 +7,7 @@ import Cart from './cart/cart'
 import { commerce } from './commerce/commerce'
 import Homepage from './homepage/homepage'
 import Checkout from './checkout/Checkout'
-import Profile from './profile/Profile'
+import Orders from './profile/Orders'
 import Login from './login/Login'
 
 
@@ -33,8 +33,6 @@ function App() {
     fetchCart()
 
   }, [cart])
-
-  console.log(cart);
 
   const { productID } = useParams()
   
@@ -80,7 +78,7 @@ function App() {
           <Route path='/' element={<Homepage />} />
           <Route path='/shopping' element={<Shopping products={products} />} />
           <Route path='/shopping/:productID' element={<Product />} />
-          <Route path='/profile' element={<Profile />} />
+          <Route path='/orders' element={<Orders />} />
           <Route path='/login/:loginID' element={<Login />} />
           <Route path='/cart' element={<Cart cartItems={cartItems} />} />
           <Route path='/checkout' element={<Checkout cart={cart} order={order} handleCaptureCheckout={handleCaptureCheckout} errorMessage={errorMessage} />} />

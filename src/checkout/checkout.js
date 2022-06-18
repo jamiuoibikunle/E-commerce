@@ -146,10 +146,14 @@ const Checkout = ({cart, handleCaptureCheckout, order}) => {
       setEmptyField('')
       setNum1(<img src={check} alt='Check' />)
 
+    } else {
+      
+      // Condition for when any of the field is empty
+      setEmptyField('Please ensure that none of the fields below is empty.')
+      alert('Please ensure that none of the fields below is empty.')
+    
     }
 
-    // Condition for when any of the field is empty
-    if (!firstName) setEmptyField('Please ensure that none of the fields below is empty.')
   }
 
   return (
