@@ -3,7 +3,7 @@ import styles from '../styles/Homepage.module.css'
 import handshake from '../resources/handshake.png'
 import delivery from '../resources/delivery.png'
 import customerservice from '../resources/customerservice.png'
-import mockup1 from '../resources/mockup1.png'
+import mockup from '../resources/mockup.png'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
@@ -23,7 +23,7 @@ const Homepage = () => {
 					</p>
 				</aside>
 				<aside className={styles.mockup1wrapper}>
-					<img src={mockup1} alt='Mockup' className={styles.mockup1} data-aos='fade-left' data-aos-delay='300' />
+					<img src={mockup} alt='Mockup' className={styles.mockup1} data-aos='fade-left' data-aos-delay='300' />
 				</aside>
 			</section>
 					<p className={styles.question} data-aos='fade-up'>
