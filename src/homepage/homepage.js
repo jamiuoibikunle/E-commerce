@@ -1,42 +1,59 @@
 import React from 'react'
 import styles from '../styles/Homepage.module.css'
+import handshake from '../resources/handshake.png'
+import delivery from '../resources/delivery.png'
+import customerservice from '../resources/customerservice.png'
+import mockup1 from '../resources/mockup1.png'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 const Homepage = () => {
 
+	AOS.init()
+
 	return (
-		
-		<main className={styles.homewrapper}>
-			<figcaption className={styles.homefigcap}>
-				<main className={styles.homefigcaphead}>
-					ONLINE STORE FOR MOBILE GADGETS!
-				</main>
-				<aside className={styles.homefigcapbody}>
-					Awesome
+		<main className={styles.container}>
+			<section className={styles.header}>
+				<aside className={styles.welcome} data-aos='fade-right'>
+					<p className={styles.welcomebig}>
+						No. 1 Marketplace for Mobile Gadgets.
+					</p>
+					<p className={styles.welcomesmall}>
+						Buy from the comfort of your phone and enjoy the best deals.
+					</p>
 				</aside>
-			</figcaption>
-			<h1 className={styles.homeh1}>
-				Why Buy From Us?
-			</h1>
-			<section className={styles.whyus}>
-				<header className={styles.whyusheader}>
-					<div className={styles.whyusitem}>
-						Reliability
-					</div>
-				</header>
-				<main className={styles.text}>
-					We are all about reliability, we want you to be able to trust our products, trust that they will last and withstand all kind of environments. That is why we take great pride in our development and testing of each and every product in our product collection.
-				</main>
-				<header className={styles.whyusheader}>
-					<div className={styles.whyusitem}>
-						Quality
-					</div>
-				</header>
-				<main className={styles.text}>
-					We are a fast growing startup company because we always put the customer first. This is why we are fully committed to providing our customers with the very best quality products. We believe in going the extra mile to ensure that each customer is satisfied with our software testing and project management solutions.
-				</main>
+				<aside className={styles.mockup1wrapper}>
+					<img src={mockup1} alt='Mockup' className={styles.mockup1} data-aos='fade-left' data-aos-delay='300' />
+				</aside>
 			</section>
-		</main>
-		
+					<p className={styles.question} data-aos='fade-up'>
+						Why Buy From Us?
+					</p>
+			<section className={styles.reliability}>
+				<img src={handshake} alt='mockup2' className={styles.mockup2} data-aos='fade-right' data-aos-delay='300' />
+				<aside className={styles.whyusanswers} data-aos='fade-left' data-aos-delay='600'>
+					<p className={styles.answer}>
+						We are all about reliability, we want you to be able to trust our products, trust that they will last and withstand all kind of environments.
+					</p>
+				</aside>
+			</section>
+			<section className={styles.delivery}>
+				<aside className={styles.whyusanswers} data-aos='fade-right' data-aos-delay='900'>
+					<p className={styles.answer}>
+						We deliver nationwide across Nigeria every day of the week. It is our obligation to ensure our customers do not wait longer than need be.
+					</p>
+				</aside>
+				<img src={delivery} alt='mockup2' className={styles.mockup2} data-aos='fade-left' data-aos-delay='600' />
+			</section>
+			<section className={styles.customerservice}>
+				<img src={customerservice} alt='mockup2' className={styles.mockup2} data-aos='fade-right' />
+				<aside className={styles.whyusanswers} data-aos='fade-left' data-aos-delay='300' >
+					<p className={styles.answer}>
+					We know customer service is instrumental to the success of a business. That is why we take great pride in our stellar customer service.
+					</p>
+				</aside>
+			</section>
+		</main>		
 	)
 }
 

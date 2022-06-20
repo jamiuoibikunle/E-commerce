@@ -50,6 +50,8 @@ const Payment = ({prevItem, nextItem, set2, address, checkoutToken, firstName, l
 		})
 	}
 
+	console.log(checkoutToken);
+
 	return (
 	
 		<div className={styles.paymentContainer}>
@@ -59,6 +61,8 @@ const Payment = ({prevItem, nextItem, set2, address, checkoutToken, firstName, l
 			<section className={styles.summary}>
 				{checkoutToken.live.line_items.map((product) => (
 					<main key={product.name} className={styles.individual}>
+						<aside>
+
 						<div className={styles.name}>
 							{product.name}
 						</div>
@@ -67,6 +71,10 @@ const Payment = ({prevItem, nextItem, set2, address, checkoutToken, firstName, l
 								<span className={styles.quantityNum}>
 									{' ' + product.quantity}
 								</span>
+						</div>
+						</aside>
+						<div>
+							{product.line_total.formatted_with_symbol}
 						</div>
 					</main>
 			))}
