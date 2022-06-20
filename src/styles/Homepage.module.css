@@ -16,6 +16,7 @@
   justify-content: space-around;
   align-items: center;
   padding-top: 2rem;
+  overflow: hidden;
 }
 
 .mockup1 {
@@ -45,6 +46,7 @@
   box-sizing: border-box;
   width: 20rem;
   font-family: 'Anek Malayalam', sans-serif;
+  padding: 1rem;
 }
 
 .welcomebig {
@@ -55,6 +57,10 @@
 
 .welcomesmall {
   font-size: 1.5rem;
+}
+
+.whyus {
+  margin: auto;
 }
 
 .reliability {
@@ -87,14 +93,11 @@
   align-items: center;
 }
 
-.whyus:nth-of-type(2) {
-  flex-wrap: wrap-reverse;
-}
-
 .whyusanswers {
   width: 25rem;
   padding: 3rem;
   box-sizing: border-box;
+  margin: auto;
 }
 
 .question {
@@ -106,14 +109,22 @@
 
 .answer {
   line-height: 1.6rem;
+  width: fit-content;
 }
 
 .mockup2 {
-  width: 25rem;
+  width: 100%;
+  margin: auto;
 }
 
 @keyframes goshopping {
   50% {
     transform: scale(1);
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .mockup2 {
+    width: 25rem;
   }
 }
