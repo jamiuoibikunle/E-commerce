@@ -1,9 +1,9 @@
-.container {
+.homecontainer {
   margin-bottom: 5rem;
   overflow: hidden;
 }
 
-.header {
+.mockupheader {
   background: url(../resources/banner.svg);
   background-repeat: no-repeat;
   background-position: center;
@@ -13,22 +13,38 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  padding-top: 2rem;
 }
 
 .mockup1 {
-  height: 30rem;
-  width: 30rem;
+  box-sizing: border-box;
+  height: 32rem;
+  width: 25rem;
+  padding: 2rem;
+}
+
+.goshopping {
+  background-color: black;
+  border-radius: 0.5rem;
+  width: fit-content;
+  margin: 0.8rem 0;
+  padding: 0.7rem;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: whitesmoke;
+  animation: goshopping 5s infinite forwards ease-in-out;
+  transform: scale(0.8);
 }
 
 .welcome {
   display: block;
   color: white;
-  padding: 2rem;
   box-sizing: border-box;
-  height: fit-content;
   width: 20rem;
+  font-family: 'Anek Malayalam', sans-serif;
 }
 
 .welcomebig {
@@ -94,4 +110,10 @@
 
 .mockup2 {
   width: 25rem;
+}
+
+@keyframes goshopping {
+  50% {
+    transform: scale(1);
+  }
 }
