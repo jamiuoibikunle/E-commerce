@@ -21,7 +21,6 @@ const Navigation = ({cart}) => {
       </NavLink>
       <NavLink to='/orders' className={styles.profile}>
       </NavLink>
-
         { totalItems !== 0 &&
         <span className={styles.cartNo}>
         {cart && totalItems}

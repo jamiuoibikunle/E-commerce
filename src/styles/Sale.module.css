@@ -20,21 +20,35 @@
   align-items: center;
 }
 
-dl {
+.select {
+  padding: 0.2rem;
+  border: none;
+  color: grey;
+}
+
+.dl {
   margin: 0;
   padding: 0;
 }
 
-dt {
+.dt {
   font-size: 2.5rem;
   font-weight: 600;
 }
 
-dd {
+.dd {
+  color: grey;
   margin: 0;
-  padding: 0;
-  color: rgb(136, 23, 23);
-  font-size: 1rem;
+  padding: 0.4rem;
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 0.2rem;
+}
+
+.dd:hover {
+  border: 1px solid green;
+  transition: 2s;
 }
 
 .individualFig {

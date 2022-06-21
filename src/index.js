@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/responsive.css'
 import './index.css'
-import reportWebVitals from './reportWebVitals';
 import {CircularProgress} from '@material-ui/core'
 import styles from './styles/Spinner.module.css'
 
@@ -19,6 +18,4 @@ ReactDOM.render(
     </React.Suspense>
   </React.StrictMode>,
   document.getElementById('root')
-);
-
-reportWebVitals();
+)

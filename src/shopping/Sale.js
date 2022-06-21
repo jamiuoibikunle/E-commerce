@@ -4,19 +4,16 @@ import {Link} from 'react-router-dom'
 import { CircularProgress } from '@material-ui/core'
 
 function Sale({ products }) {
+
   return (
     <div className={styles.sale}>
-      <header className={styles.header}>
-        <dl>
-          <dt>
-            Sale
+      {/* <header className={styles.header}>
+        <dl className={styles.dl}>
+          <dt className={styles.dt}>
+            Best deals
           </dt>
-          <dd>
-            Super sales
-          </dd>
-          
         </dl>
-      </header>
+      </header> */}
       
       {products ?
       

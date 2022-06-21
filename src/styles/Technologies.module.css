@@ -1,0 +1,46 @@
+.header {
+  margin: 5rem auto;
+}
+
+.technologiesheader {
+  font-size: 1.8rem;
+  width: fit-content;
+  margin: auto;
+  font-family: 'Anek Malayalam', sans-serif;
+  text-align: center;
+}
+
+.items {
+  overflow: hidden;
+  width: 100%;
+  margin: auto;
+}
+
+.movable {
+  width: 80%;
+  margin: auto;
+  height: 25rem;
+  display: flex;
+  row-gap: 0.5rem;
+  transition: 1s;
+}
+
+.item {
+  height: 25rem;
+  min-width: 25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.images {
+  width: 70%;
+  height: 60%;
+}
+
+.itemname {
+  width: fit-content;
+  margin: auto;
+  font-size: 2rem;
+}

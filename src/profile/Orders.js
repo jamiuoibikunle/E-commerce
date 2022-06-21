@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styles from '../styles/Profile.module.css'
 import { commerce } from '../commerce/commerce'
 import ListOrders from './ListOrders'
+import jwt_decode from "jwt-decode";
 
 const Orders = () => {
 
@@ -35,6 +36,7 @@ const Orders = () => {
   }
 
   const customerID = localStorage.getItem('commercejs_customer_id')
+  const customerToken = localStorage.getItem('commercejs_customer_token')
 
   useEffect(() => {
 
@@ -47,6 +49,18 @@ const Orders = () => {
   }
  
   }, [customerID])
+
+  useEffect(() => {
+    if (customerToken) {
+      let decodedToken = jwt_decode(customerToken)
+      console.log(decodedToken);
+      const time = new Date(decodedToken.exp * 1000)
+      const currTime = new Date
+      console.log(currTime > time)
+
+      currTime > time && localStorage.clear()
+    }
+  }, [customerToken])
 
   const handleLogout = () => {
     commerce.customer.logout()
