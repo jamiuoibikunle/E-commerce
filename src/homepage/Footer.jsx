@@ -7,7 +7,6 @@ import Technologies from './Technologies'
 const Footer = () => {
   return (
     <main className={styles.footerwrapper}>
-
     <div className={styles.newsletterwrapper}>
       <section className={styles.footer}>
         <div className={styles.emailrounded}>
@@ -35,7 +34,7 @@ const Footer = () => {
       </section>
     </div>
     <Technologies />
-    {/* <Address /> */}
+    <Address />
     </main>
   )
 }

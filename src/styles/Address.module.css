@@ -1,0 +1,163 @@
+.container {
+  width: 100%;
+  margin-bottom: 4rem;
+  height: 70vh;
+  position: relative;
+}
+
+.footer {
+  height: 100%;
+  background: url(../resources/blob.svg);
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.developed {
+  color: white;
+  width: fit-content;
+  margin: auto;
+  padding: 1rem;
+  background-color: #081736;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  position: absolute;
+  top: -2.5rem;
+  left: 0;
+  right: 0;
+}
+
+.item {
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 0.5rem;
+  color: #c6863c;
+  margin: auto;
+}
+
+.dd {
+  color: whitesmoke;
+  margin: 0;
+  padding: 0;
+}
+
+.dl {
+  margin: 0;
+  padding: 0;
+  line-height: 1.6rem;
+}
+
+.reachme {
+  color: white;
+  box-sizing: border-box;
+  padding: 0 1.5rem;
+  width: 17rem;
+}
+
+.reachme .h2 {
+  font-size: 1.7rem;
+  width: fit-content;
+  color: #c6863c;
+  margin-bottom: 1rem;
+}
+
+.reachme .p {
+  font-size: 1.1rem;
+  width: fit-content;
+}
+
+.socials {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.quicklinks {
+  color: whitesmoke;
+  min-width: 12rem;
+  line-height: 1.8rem;
+  height: fit-content;
+}
+
+.link {
+  color: white;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.portfolio, .resume, .contact {
+  font-size: 1rem;
+}
+
+.workhours {
+  color: whitesmoke;
+  min-width: 15rem;
+}
+
+.work {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.time {
+  font-size: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.callus {
+  margin-top: 1rem;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  background-color: #c6863c;
+}
+
+@media screen and (max-width: 600px) {
+  .developed {
+    position: relative;
+    height: fit-content;
+  }
+
+  .container {
+    height: 80vh;
+  }
+
+  .reachme {
+    width: 100%;
+    margin: 1rem 0;
+  }
+
+  .quicklinks {
+    width: 100%;
+    padding: 1.5rem;
+    box-sizing: border-box;
+  }
+
+  .workhours {
+    width: 100%;
+    padding: 1.5rem;
+    box-sizing: border-box;
+  }
+}
