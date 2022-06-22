@@ -50,10 +50,18 @@ const Address = () => {
             Want to build a web application for your business? I am only a click away.
           </p>
           <p className={styles.socials}>
-            <Facebook />
-            <Twitter />
-            <Instagram />
-            <LinkedIn />
+            <a href='https://www.facebook.com/Ibidotun/' rel="noreferrer" target='_blank' className={styles.social}>
+              <Facebook />
+            </a>
+            <a href='https://twitter.com/Thealphameil' rel="noreferrer" target='_blank' className={styles.social}>
+              <Twitter />
+            </a>
+            <a href='https://instagram.com/thealphameil' rel="noreferrer" target='_blank' className={styles.social}>
+              <Instagram />
+            </a>
+            <a href='https://www.linkedin.com/in/jamiuibikunle/' rel="noreferrer" target='_blank' className={styles.social}>
+              <LinkedIn />
+            </a>
           </p>
         </div>
         <div className={styles.quicklinks}>
@@ -61,13 +69,19 @@ const Address = () => {
             Quick links
           </p>
           <p className={styles.portfolio}>
-            Portfolio Website
+            <a href='https://jamiuibikunle.netlify.app' rel="noreferrer" target='_blank' className={styles.quick}>
+              Portfolio Website
+            </a>
           </p>
           <p className={styles.resume}>
-            Resume
+            <a href='https://drive.google.com/file/d/1yZwnrEKevkd5b_OUoHdShFG369iCGrXJ/view' rel="noreferrer" target='_black' className={styles.quick}>
+              Resume
+            </a>
           </p>
           <p className={styles.contact}>
-            Contact
+            <a href='tel:+2347088115563' className={styles.quick}>
+              Contact
+            </a>
           </p>
         </div>
         <div className={styles.workhours}>
@@ -79,7 +93,9 @@ const Address = () => {
             8AM - 5PM, Monday - Friday
           </p>
           <p className={styles.callus}>
-            CALL US TODAY
+            <a href='tel:+2347088115563' className={styles.tel}>
+              CALL US TODAY
+            </a>
           </p>
         </div>
       </div>

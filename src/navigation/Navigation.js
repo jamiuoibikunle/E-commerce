@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import styles from '../styles/Navigation.module.css'
 import '../styles/nav.css'
 
@@ -22,9 +22,9 @@ const Navigation = ({cart}) => {
       <NavLink to='/orders' className={styles.profile}>
       </NavLink>
         { totalItems !== 0 &&
-        <span className={styles.cartNo}>
+        <Link className={styles.cartNo} to='/cart'>
         {cart && totalItems}
-      </span>
+      </Link>
         }
     </main>
   )

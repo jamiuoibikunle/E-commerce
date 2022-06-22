@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Shopping from './shopping/Shopping'
 import { HashRouter as Router, Routes, Route, useParams } from 'react-router-dom'
-import Navigation from './shopping/Navigation'
+import Navigation from './navigation/Navigation'
 import Product from './product/Product'
 import Cart from './cart/cart'
 import { commerce } from './commerce/commerce'
